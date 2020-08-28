@@ -1,0 +1,7 @@
+{
+  "name": "doctor-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
