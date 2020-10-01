@@ -1,0 +1,107 @@
+<div class="homeBannerPanel">
+    <div class="flex justyEnd headerPad alignItemcenter">
+        <div class="notificationPanel">
+            <img src="assets/icon/notificationIcon.svg" alt="Notifi.." class="bellIcon" />
+            <div class="notifiNumber">{{dashboardCounts.notifications}}</div>
+        </div>
+        <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic" />
+        </div>
+    </div>
+    <div class="homeDocDetails flex">
+        <div class="docNamePanel">
+            <p>Hello,</p>
+            <h4>Dr. Rajendra Venkata Prasad :)</h4>
+        </div>
+        <div class="docAnimatedPicPanel">
+            <img src="assets/images/docFemaleHomePic.svg" alt="Doctor Pic" />
+        </div>
+    </div>
+    <div class="mainCardPanel">
+            <div class="consultationCard">
+               <div class="consCardTitleBar"><p>Consultations</p>
+                <span>
+                    <div class="btn-group" dropdown placement="bottom right">
+                        <button id="button-split" type="button" dropdownToggle class="btn noBtnFocus dropdown-toggle-split customDottedMenu"
+                                aria-controls="dropdown-split">
+                                <ion-icon name="ellipsis-horizontal"></ion-icon>
+                        </button>
+                        <ul id="dropdown-split" *dropdownMenu class="dropdown-menu dropdown-menu-right customCalenFilter"
+                            role="menu" aria-labelledby="button-split">
+                           <!--  Add "filterActivated" class to "a" tag for active filter -->
+                          <li role="menuitem">
+                              <a class="dropdown-item filterActivated" href="#">
+                                <ion-icon name="calendar-outline"></ion-icon> &nbsp;Today 
+                                <img src="assets/icon/filterCheck.svg" class="filterCheckIcon"/>
+                           </a>
+                        </li>
+                        <li role="menuitem">
+                            <a class="dropdown-item" href="#">
+                              <ion-icon name="calendar-outline"></ion-icon> &nbsp;This Week 
+                              <img src="assets/icon/filterCheck.svg" class="filterCheckIcon"/>
+                         </a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                          <ion-icon name="calendar-outline"></ion-icon> &nbsp;This Month 
+                          <img src="assets/icon/filterCheck.svg" class="filterCheckIcon"/>
+                     </a>
+                  </li>
+                  <li role="menuitem">
+                    <a class="dropdown-item" href="#">
+                      <ion-icon name="calendar-outline"></ion-icon> &nbsp;Custom 
+                      <img src="assets/icon/filterCheck.svg" class="filterCheckIcon"/>
+                    </a>
+                </li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
+            <div class="row consultationSplitPanel">
+                <div class="col" (click)="navigateTo('Scheduled')">
+                    <h4>{{dashboardCounts.scheduledConsultations}}</h4>
+                    
+                    <p>Scheduled</p>
+                </div>
+                <div class="col" (click)="navigateTo('Missed')">
+                    <h4>{{dashboardCounts.missedConsultations}}</h4>
+                   
+                    <p>Missed</p>
+                </div>
+                <div class="col" (click)="navigateTo('Total')">
+                    <h4>{{dashboardCounts.totalConsultations}}</h4>
+                   
+                    <p>Total</p>
+                </div>
+            </div>
+            </div>
+            <div class="homeCards fdcard">
+                <div>
+                    <p>Family Doctor</p>
+                </div>
+                <div>
+                    <h4>{{dashboardCounts.familyDoctorPackages}}</h4>
+                    <h6>Subscribers</h6>
+                </div>
+             </div>
+            <div class="homeCards packagescard">
+                <div>
+                    <p>Packages</p>
+                </div>
+                <div>
+                    <h4>{{dashboardCounts.packages}}</h4>
+                    <h6>Subscribers</h6>
+                </div>
+             </div>
+            <!-- <div class="homeCards socard">
+                <div>
+                    <p>Second Opinion</p>
+                </div>
+                <div>
+                    <h4>24</h4>
+                    <h6>Subscribers</h6>
+                </div>
+            </div> -->
+        </div>
+ </div>
+

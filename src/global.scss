@@ -24,3 +24,547 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "./theme/variables.scss";
+
+*{
+    font-family: $gotham-book;
+}
+html {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+body {
+    margin: 0px;
+    min-height: 100%;
+    width: 100%;
+    color: #333;
+    font-family: $gotham-book;
+    font-size: $font-fourteen;
+}
+.noBtnFocus:focus{
+    outline: 0px dotted;
+     outline: 0px auto -webkit-focus-ring-color;
+     box-shadow: none;
+}
+.pad0{
+    padding: 0px;
+}
+.clear{ 
+    clear: both;
+}
+.align-left{
+    text-align: left;
+}
+.align-center{
+    text-align: center;
+}
+.align-right{
+    text-align: right;
+}
+.ion-page{
+    justify-content: flex-start;
+}
+/*Login Page Related Css */
+.beforeLoginHeaderPanel {
+    background: #323A8B;
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 16px 11px 11px;
+    .loginTitlePanel{
+        display: flex;
+        align-items: center;
+       .backPanel{
+        padding: 6px;
+       }
+        img{
+            width: 22px;
+            height: 21px;
+        }
+        .loginTxtpanel p {
+            margin-bottom: 0px;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+    }
+    .questIcon{
+        width: 24px;
+    }
+}
+.loginPanelContainer{
+     .loginBottomPanel{
+        position: fixed;
+        bottom: 15px;
+        width: 94%;
+        left: 3%;
+        .loginActionBtn{
+            width: 100%;
+            background: #7AA941;
+            color: #fff;
+            border: 1px solid #7AA941;
+            height: 46px;
+            border-radius: 8px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+        .loginActionBtn:hover{
+            opacity: 0.9;
+        }
+        .termsTxt{
+            font-size: $font-twelve;
+            margin-bottom: 12px;
+            color: #323A8B;
+        }
+    }  
+    .termsGreenLabel{
+        color: #7AA941;
+        border-bottom: 1px solid #7AA941;
+        font-family: $gotham-medium;
+    } 
+    .changeOverBluetxt{
+            margin-bottom: 15px;
+            color: #323A8B;
+            cursor: pointer;
+    }
+    .loginPleaseLabel{
+        margin: 25px 0px 15px;
+        font-family: $gotham-medium;
+    }
+    .customInputGrp {
+        .input-group-prepend{
+            margin-right: 0px;
+        }
+        .input-group-text{
+            background: #fff;
+            border: none;
+            color: #323A8B;
+            padding-left: 0px;
+        }
+    }
+    .customLoginInput{
+        border: 1px solid #323A8B;
+        box-shadow: 0px 0px 10px #ddd;
+        height: 42px;
+        color: #333;
+    }
+    .customInputGrp>.custom-select:not(:first-child), .customInputGrp>.form-control:not(:first-child) {
+        border-top-left-radius: .25rem;
+        border-bottom-left-radius: .25rem;
+    }
+    .otpLabel{
+        margin-bottom: 5px;
+        color: #323A8B;
+        cursor: pointer;
+    }
+    .getViaCalTxt{
+        color: #7AA941;
+        border-bottom: 1px solid #7AA941;
+        font-family: $gotham-medium;
+    }
+    .emailMobileLoginForm{
+        margin-top: 40px;
+        label{
+            font-family: $gotham-medium;
+        }
+        .form-check-label{
+            font-family: $gotham-book;
+        }
+        .form-check-input{
+            margin-top: 3px;
+        }
+    }
+}
+.flex{
+    display: flex;
+}
+.justyEnd{
+    justify-content: flex-end;
+}
+.smallProfilePicPanel{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #ddd;
+    line-height: 40px;
+    font-family: Gotham-Medium;
+    color: #323A8B;
+}
+.notificationPanel{
+    position: relative;
+    margin-right: 40px;
+    .notifiNumber{
+        position: absolute;
+        background: #D93025;
+        border-radius: 50%;
+        color: #fff;
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+        text-align: center;
+        line-height: 26px;
+        top: 10px;
+        left: 19px;
+    }
+}
+.posiRel{
+    position: relative;
+}
+.bellIcon{
+    width: 26px;
+    height: 26px;
+}
+.alignItemcenter{
+    align-items: center;
+}
+.customCalenFilter .dropdown-item{
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #565252;
+    .filterCheckIcon{
+        display: none;
+    }
+   
+}
+.customCalenFilter .dropdown-item.filterActivated{
+    background: #6fb74452;
+    .filterCheckIcon{
+        display: inline-block;
+        width: 14px;
+    }
+}
+/* Inner Pages Deafult Css */
+.bodyBlueBg{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 14px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    padding-top: 48px;
+    margin-top: 60px;
+  
+   background-image: url("/../assets/images/mainHeaderBanner.png");
+}
+.mainHeaderPanel{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 14px 0px;
+   -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+   background-image: url("/../assets/images/mainHeaderBanner.png");
+}
+.docDetails {
+    p{
+        margin: 0px;
+        font-size:20px;
+        letter-spacing: 0.6px;
+        color: #fff;
+        span{
+            color: #e7e7e7;
+            font-size: 20px;
+        }
+    }
+}
+.contentHeaderPanel{
+    border-radius: 20px 20px 0px 0px;
+    background: #F6F8FF;
+    margin-top: -46px;
+    padding: 14px;
+    .mainTilteFilterPanel{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 2px;
+        p{
+            margin-bottom: 0px;
+            font-family: Gotham-Bold;
+            font-size: 20px;
+            color: #323A8B;
+        }
+        .titleFilterPanel{
+            width: 30px;
+            height: 30px;
+            position: relative;
+            .dot{
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background: #323A8B;
+                border-radius: 50%;
+                left: 21px;
+                top: -1px;
+            }
+        }
+      
+    }
+    .searchBarPanel{
+        margin-top: 14px;
+        margin-bottom: 0px;
+    }
+    .searchBarPanel .form-control {
+        padding-right: 2.375rem;
+        border-radius: 22px;
+        background: #EFF0F9;
+        font-size: 14px;
+    }
+    
+    .searchBarPanel .form-control-feedback {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 34px;
+        height: 34px;
+        line-height: 2.6rem;
+        text-align: center;
+        pointer-events: none;
+        right: 16px;
+        .searchIcon{
+            font-size: 18px;
+            color: grey;
+        }
+    }
+}
+.scrollablePanel{
+    background: #F6F8FF;
+    padding: 14px;
+    overflow-y: auto;
+}
+.pateintInfoCardAccordion{
+        margin-bottom: 12px;
+        .card{
+            border-radius: 12px;
+            box-shadow: 0px 1px 2px #2720205c;
+            border: none;
+        }   
+        .card-header{
+            background: #fff;
+            padding: 12px;
+            border-bottom: none;
+            border-radius: 12px;
+        }
+        .card-body{
+            padding: 12px;
+        }
+       .accordBtn{
+            width: 100%;
+            background: transparent;
+            padding: 0px;
+        }
+        .accordianFlexHeader{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cardName{
+            color: #323A8B;
+            font-family: Gotham-Medium;
+            margin-bottom: 1px;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            padding-top: 3px;
+        }
+        .cardAge{
+            font-size: 12px;
+            color: #888888;
+            font-family: Gotham-medium;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        .cardAppointment{
+            font-size: 12px;
+            margin-bottom: 0px;
+            letter-spacing: 0.4px;
+        }
+       .closedArrow{
+            color: #B0B5E3;
+            font-size: 24px;
+        }
+        .openArrow{
+            display: none;
+        }
+        .consultTypeLabel{
+            margin: 0px;
+            position: absolute;
+            right: -13px;
+            top: -13px;
+            display: inline-block;
+            color: #fff;
+            font-size: 12px;
+            border-radius: 0px 9px 0px 9px;
+            padding: 1px 12px;
+        }
+        .missedLabel{
+            background: #D93025;
+        }
+        .schLabel{
+            background: #D28602;
+        }
+        .reSchLabel{
+            background: red;
+        }
+        .cancelledLabel{
+            background: #F34439;
+        }
+        .reschdLabel{
+            background: #FECE0C;
+        }
+        .accrodNamePanel{
+            flex-grow: 1!important;
+            padding-left: 10px;
+        }
+    }
+.pateintInfoCardAccordion.panel-open {
+    .card-header   {
+        background: #9FD081;
+        color: #fff;
+        border-radius: 12px 12px 0px 0px;
+    }
+    .cardName, .cardAge, .cardAppointment{
+        color: #fff;
+    }
+    .closedArrow{
+        display: none;
+    }
+    .openArrow{
+        color:#fff;
+        font-size: 24px;
+        display: block;
+    }
+    
+}
+.accordOpencontent{
+     .mrnContent{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .patientDetailscontent{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        flex-direction: column;
+    }
+    .accordcontentTitle{
+        color: #756f6f;
+        font-family: Gotham-Medium;
+        margin-bottom: 0px;
+        font-size: 12px;
+        letter-spacing: 0.3px;
+    }
+    .accordContentAns{
+        font-family: Gotham-Medium;
+        margin-bottom: 0px;
+    }
+    .consultNowBtn{
+        border: 1px solid #0075FF;
+        color: #0075FF;
+        border-radius: 18px;
+        background: #fff;
+        padding: 6px 10px;
+        cursor: pointer;
+        margin: 10px 0px 8px;
+        font-size: 14px;
+        font-family: Gotham-Medium;
+        letter-spacing: 0.4px;
+    }
+
+}
+.innerAccordIcons{
+    width:38px;
+}
+.customBottomModal{
+    margin: 0px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    .modal-content{
+        border-radius: 14px;
+        border: none;
+    }
+    .modal-body{
+        border-radius: 0px 0px 14px 14px;
+        margin-bottom: 12px;
+    }
+    .modal-footer{
+        padding: 0px;
+    }
+    .modalApplyBtn{
+        background: green;
+        color: #fff;
+        width: 100%;
+    }
+    .blueBackModal{
+        background: #A1A6DD;
+        border-radius: 14px 14px 0px 0px;
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+        font-weight: normal;
+        align-items: center;
+        padding: 10px 12px;
+        p{
+            margin-bottom: 0px;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+        .clearFilterLabel{
+            font-size: 14px;
+        }
+    }
+    .modalFilterLabel{
+        font-family: Gotham-Medium;
+        margin-bottom: 10px;
+    }
+}
+.radioBtnPanel{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    .radioBtnDiv{
+        flex-basis: 33.333333%;
+        margin-bottom: 18px;
+    }
+    input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+  label {
+    display: inline-block;
+    padding: 5px 5px;
+    color: #323A8B;
+    border: 1px solid #323A8B;
+    border-radius: 4px;
+    width: 90%;
+    margin: 0px 10% 0px 0px;
+    text-align: center;
+  }
+  /* 
+  .radioBtnPanel label:hover {
+    background-color: #dfd;
+  }
+  
+  .radioBtnPanel input[type="radio"]:focus + label {
+      border: 2px dashed #444;
+  }
+   */
+  input[type="radio"]:checked + label {
+      background-color:#323A8B;
+      border-color:#323A8B;
+      color: #fff;
+  }
+}
+.radioBtnPanel:last-child{
+    margin-bottom: 0px;
+    border-bottom: none;
+}

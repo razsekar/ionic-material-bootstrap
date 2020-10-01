@@ -230,3 +230,46 @@
     --ion-card-background: #1e1e1e;
   }
 }
+
+$font-ten: 10px;
+$font-eleven: 11px;
+$font-twelve: 12px;
+$font-thirteen: 13px;
+$font-fourteen: 14px;
+$fifteen: 15px;
+$font-sixteen: 16px;
+$font-eighteen: 18px;
+$font-twenty: 20px;
+$font-thirty: 30px;
+$font-twenty-two: 22px;
+$font-twenty-five: 25px;
+$font-forty: 40px;
+$table-head: #ededed;
+$gotham-book: "Gotham-Book";
+$gotham-medium: "Gotham-Medium";
+$gotham-ultra:"Gotham-Ultra";
+$gotham-bold:"Gotham-Bold";
+@font-face {
+  font-family: "Gotham-Book";
+  src: url("/../fonts/Gotham-Book/Gotham-Book.eot?#iefix") format("embedded-opentype"), url("/../fonts/Gotham-Book/Gotham-Book.woff") format("woff"), url("/assets/fonts/Gotham-Book/Gotham-Book.ttf") format("truetype"), url("/assets/fonts/Gotham-Book/Gotham-Book.svg#glyphicons_halflingsregular") format("svg");
+}
+
+@font-face {
+  font-family: "Gotham-BookItalic";
+  src: url("/../fonts/Gotham-BookItalic/Gotham-BookItalic.eot?#iefix") format("embedded-opentype"), url("/../fonts/Gotham-BookItalic/Gotham-BookItalic.woff") format("woff"), url("/assets/fonts/Gotham-BookItalic/Gotham-BookItalic.ttf") format("truetype"), url("/assets/fonts/Gotham-BookItalic/Gotham-BookItalic.svg#glyphicons_halflingsregular") format("svg");
+}
+
+@font-face {
+  font-family: "Gotham-Medium";
+  src: url("/../fonts/Gotham-Medium/Gotham-Medium.eot?#iefix") format("embedded-opentype"), url("/../fonts/Gotham-Medium/Gotham-Medium.woff") format("woff"), url("/assets/fonts/Gotham-Medium/Gotham-Medium.ttf") format("truetype"), url("/assets/fonts/Gotham-Medium/Gotham-Medium.svg#glyphicons_halflingsregular") format("svg");
+}
+
+@font-face {
+  font-family: "Gotham-Ultra";
+  src: url("/../fonts/Gotham-Ultra/GothamUltra.eot?#iefix") format("embedded-opentype"), url("/../fonts/Gotham-Ultra/GothamUltra.woff") format("woff"), url("/assets/fonts/Gotham-Ultra/GothamUltra.ttf") format("truetype"), url("/assets/fonts/Gotham-Ultra/GothamUltra.svg#glyphicons_halflingsregular") format("svg");
+}
+@font-face {
+font-family: "Gotham-Bold";
+src: url("/../fonts/Gotham-Bold/Gotham-Bold.eot?#iefix") format("embedded-opentype"), url("/../fonts/Gotham-Bold/Gotham-Bold.woff") format("woff"), url("/assets/fonts/Gotham-Bold/Gotham-Bold.ttf") format("truetype"), url("/assets/fonts/Gotham-Bold/Gotham-Bold.svg#glyphicons_halflingsregular") format("svg");
+}
+ 

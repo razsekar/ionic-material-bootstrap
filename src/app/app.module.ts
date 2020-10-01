@@ -12,14 +12,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // RECOMMENDED
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { CommonService } from './services/common.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, BsDatepickerModule.forRoot()],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    BrowserAnimationsModule, 
+    BsDatepickerModule.forRoot(), 
+    HttpClientModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
+    CommonService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   exports: [BrowserAnimationsModule, BsDatepickerModule],

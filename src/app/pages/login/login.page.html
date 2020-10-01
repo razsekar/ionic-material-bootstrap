@@ -1,0 +1,107 @@
+<!-- <ion-content>
+  Login Page
+</ion-content>
+ --> 
+  <mat-progress-bar *ngIf="loading" mode="indeterminate" color="primary"></mat-progress-bar>
+  <!-- Login Thru Phone Number By OTP Container Starts -->
+  <div *ngIf="currentView === 'login-with-mobile'" class="container loginPanelContainer">
+    <div class="loginInputsPanel">
+      <p class="loginPleaseLabel">Please enter your phone number to login</p>
+      <div class="input-group mb-3 customInputGrp">
+        <div class="input-group-prepend">
+          <span class="input-group-text">+91</span>
+        </div>
+        <input type="text" class="form-control customLoginInput" placeholder="9133557799">
+      </div>
+      <p class="changeOverBluetxt" (click)="currentView = 'login-with-email'">Login Using email?</p>
+    </div>
+    <div class="loginBottomPanel">
+      <p class="termsTxt">By using the app, you agree to <span class="termsGreenLabel">Terms</span></p>
+      <button (click)="currentView = 'verify-otp'" type="button" class="loginActionBtn noBtnFocus">LOGIN</button>
+    </div>
+  </div>
+  <!-- Enter Phone Number Container Ends -->
+
+  <!-- Login Thru OTP Container Starts -->
+  <div *ngIf="currentView === 'verify-otp'" class="container loginPanelContainer">
+    <div class="loginInputsPanel">
+      <p class="loginPleaseLabel">Please enter the 4 digit OTP that has been sent to
+        <br />+91 814-XXX-004 </p>
+      <div class="form-group mb-3 customInputGrp">
+        <p class="otpLabel">4 digit OTP</p>
+        <input type="text" class="form-control customLoginInput" placeholder="Enter OTP">
+      </div>
+      <p class="changeOverBluetxt">Resend 4 digit OTP?</p>
+      <p class="changeOverBluetxt">OTP not Recieved? <span class="getViaCalTxt">(Get Via Call)</span></p>
+      <p (click)="currentView = 'login-with-email'" class="changeOverBluetxt">Login Using email?</p>
+    </div>
+    <div class="loginBottomPanel">
+      <p class="termsTxt">By using the app, you agree to <span class="termsGreenLabel">Terms</span></p>
+      <button (click)="goHome()" type="button" class="loginActionBtn noBtnFocus">CONFIRM OTP</button>
+    </div>
+  </div>
+  <!-- Enter OTP Container Ends -->
+
+  <!-- Login Thru Email/Phone Number Container Starts -->
+  <div *ngIf="currentView === 'login-with-email'" class="container loginPanelContainer">
+   
+    <div class="loginInputsPanel emailMobileLoginForm">
+      <div class="form-group customInputGrp">
+        <label for="email">Email/Phone Number</label>
+        <input [(ngModel)]="data.email" type="email" class="form-control customLoginInput" placeholder="" id="">
+      </div>
+      <div class="form-group customInputGrp">
+        <label for="pwd">Password</label>
+        <input [(ngModel)]="data.password" type="password" class="form-control customLoginInput" placeholder="" id="">
+      </div>
+      <p class="changeOverBluetxt">Forgot Password?</p>
+      <div class="form-group form-check">
+        <label class="form-check-label changeOverBluetxt">
+          <input class="form-check-input" type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+    <div class="loginBottomPanel">
+      <p class="termsTxt">By using the app, you agree to <span class="termsGreenLabel">Terms</span></p>
+      <button (click)="handleLogin()" type="button" class="loginActionBtn noBtnFocus">LOGIN</button>
+    </div>
+  </div>
+  <!-- Login Thru Email/Phone Number Container Ends -->
+
+    <!-- Forgot Password Enter Mobile/Email Container Starts -->
+  <!--<div class="container loginPanelContainer">
+    <div class="loginInputsPanel">
+      <p class="loginPleaseLabel">Enter your registered mobile number or email 
+        so that we can help you access your account </p>
+      <div class="form-group mb-3 customInputGrp">
+       
+        <input type="text" class="form-control customLoginInput" placeholder="">
+      </div>
+     
+    </div>
+    <div class="loginBottomPanel">
+      <p class="termsTxt">By using the app, you agree to <span class="termsGreenLabel">Terms</span></p>
+      <button type="button" class="loginActionBtn noBtnFocus">CONTINUE</button>
+    </div>
+  </div>-->
+  <!-- Forgot Password Enter Mobile/Email Container Ends -->
+
+ 
+  <!-- New Password/Confirm Container Starts -->
+ <!-- <div class="container loginPanelContainer">
+    <div class="loginInputsPanel emailMobileLoginForm">
+      <div class="form-group customInputGrp">
+        <label for="email">New password</label>
+        <input type="email" class="form-control customLoginInput" placeholder="" id="">
+      </div>
+      <div class="form-group customInputGrp">
+        <label for="pwd">Confirm Password</label>
+        <input type="password" class="form-control customLoginInput" placeholder="" id="">
+      </div>
+    </div>
+    <div class="loginBottomPanel">
+      <p class="termsTxt">By using the app, you agree to <span class="termsGreenLabel">Terms</span></p>
+      <button type="button" class="loginActionBtn noBtnFocus">CONFIRM CHANGE</button>
+    </div>
+  </div>  -->
+  <!-- New Password/Confirm Container Ends -->

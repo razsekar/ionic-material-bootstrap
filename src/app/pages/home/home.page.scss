@@ -1,0 +1,128 @@
+
+.homeBannerPanel{
+    background-image: url("/../assets/images/homeFull.png");
+   /*  height: 250px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    z-index: 1000; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+.mainCardPanel{
+    width: 100%;
+    padding:20px 14px 14px 14px;
+    height: 420px;
+     overflow-y: scroll;
+    .homeCards{
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 130px;
+        margin: 16px 0px;
+        padding: 14px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        p{
+            margin: 0px;
+            font-size: 16px;
+        }
+        h4{
+            font-size: 30px;
+            font-family: Gotham-Medium;
+            margin: 0px;
+            margin-bottom: 3px;
+        }
+        h6{
+            margin: 0px;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+        }
+    }
+    .fdcard{
+        background-image: url("/../assets/images/familyDocHomeMobileBanner.png");
+    }
+    .packagescard{
+        background-image: url("/../assets/images/packagesHomeMobileBanner.png");
+     }
+     .consultationCard{
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        height: 130px;
+        margin: 16px 0px;
+        padding: 14px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 0px;
+       background-image: url("/../assets/images/consHomeMobileBanner.png");
+   }
+   .socard{
+    background-image: url("/../assets/images/soHomeMobileBanner.png");
+
+   }
+}
+.headerPad{
+    padding: 10px 10px 5px;
+}
+.homeDocDetails{
+    justify-content: space-between;
+    padding: 8px 20px;
+    color: #fff;
+    .docAnimatedPicPanel{
+        width: 30%;
+    }
+    .docNamePanel{
+        width: 70%;
+        padding-right: 12px;
+        p{
+            color: #e8e7e7;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        h4{
+            margin-bottom: 0px;
+            margin-top: 10px;
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+}
+.consCardTitleBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p{
+        margin: 0px;
+    }
+}
+.consultationSplitPanel {
+    .col{
+        width: 33.33%;
+        padding-left: 16px;
+         padding-right: 0px;
+    }
+    p{
+        font-size: 12px;
+        margin-bottom: 0px;
+        letter-spacing: 0.7px;
+    }
+    h4{
+        font-size: 26px;
+        font-family: Gotham-Medium;
+        margin-bottom: 0px;
+        border-right: 1px solid #ddd;
+        margin-top: 5px;
+    }
+}
+.customDottedMenu{
+    padding: 0px;
+    background: transparent;
+    color: #fff;
+}

@@ -1,0 +1,462 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>consultations</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+<div class="bodyBlueBg">
+
+</div>
+<div class="contentHeaderPanel">
+  <div class="mainTilteFilterPanel">
+    <p class="page-heading">{{page}} consultations</p>
+    <div class="titleFilterPanel" (click)="openModal(template)">
+      <img src="assets/icon/filterIcon.svg" alt="Filter" />
+      <!--Add Below Span When Filter Applied-->
+      <span class="dot"></span>
+    </div>
+  </div>
+  <div class="form-group searchBarPanel">
+    <span class="form-control-feedback">
+      <ion-icon name="search" class="searchIcon"></ion-icon>
+    </span>
+    <input [(ngModel)] = "searchFilter" type="text" class="form-control" placeholder="Search By Name/MRN">
+  </div>
+</div>
+<div class="scrollablePanel">
+  <accordion [isAnimated]="true" [closeOthers]="oneAtATime">
+    <accordion-group *ngFor="let consultation of consultations | consultationsFilter: searchFilter" class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <!-- <div class="posiRel"><p class="consultTypeLabel missedLabel">Missed</p></div>  -->
+        <div *ngIf="consultation.appointment?.status === 1 && page === 'Total'" class="posiRel"><p class="consultTypeLabel schLabel">Scheduled</p></div>
+        <!-- <div class="posiRel"><p class="consultTypeLabel reschdLabel">Re-Scheduled</p></div>
+        <div class="posiRel"><p class="consultTypeLabel cancelledLabel">Cancelled</p></div> -->
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left accrodNamePanel">
+            <p class="cardName">{{consultation.appointment?.customerDetails?.firstName}} {{consultation.appointment?.customerDetails?.lastName}}</p>
+            <p class="cardAge">{{consultation.appointment?.customerDetails?.genderVal}} | {{consultation.appointment?.customerDetails?.age}} Years</p>
+            <p class="cardAppointment">{{consultation.appointment?.scheduledTime | date:'shortTime'}} | {{consultation.appointment?.scheduledTime | date: 'MMM d, y'}}</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+       
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">{{consultation.appointment?.customerDetails?.mrn}}</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">{{consultation.appointment?.reason || 'N/A'}}</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">{{consultation.appointment?.typeName}}</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+      </div>
+    </accordion-group>
+    <!-- <accordion-group class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <div class="posiRel"><p class="consultTypeLabel reschdLabel">Re-Scheduled</p></div>
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left">
+            <p class="cardName">Michel Scofield Buddy</p>
+            <p class="cardAge">Male | 22 Years</p>
+            <p class="cardAppointment">3:45 PM | July 25, 2020</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">234567</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">Fever, cough, Stomach pain</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">Report Review</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+
+      </div>
+    </accordion-group>
+    <accordion-group class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left">
+            <p class="cardName">Michel Scofield Buddy</p>
+            <p class="cardAge">Male | 22 Years</p>
+            <p class="cardAppointment">3:45 PM | July 25, 2020</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">234567</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">Fever, cough, Stomach pain</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">Report Review</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+
+      </div>
+    </accordion-group>
+    <accordion-group class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left">
+            <p class="cardName">Michel Scofield Buddy</p>
+            <p class="cardAge">Male | 22 Years</p>
+            <p class="cardAppointment">3:45 PM | July 25, 2020</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">234567</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">Fever, cough, Stomach pain</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">Report Review</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+     </div>
+    </accordion-group>
+    <accordion-group class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left">
+            <p class="cardName">Michel Scofield Buddy</p>
+            <p class="cardAge">Male | 22 Years</p>
+            <p class="cardAppointment">3:45 PM | July 25, 2020</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">234567</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">Fever, cough, Stomach pain</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">Report Review</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+     </div>
+    </accordion-group>
+    <accordion-group class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left">
+            <p class="cardName">Michel Scofield Buddy</p>
+            <p class="cardAge">Male | 22 Years</p>
+            <p class="cardAppointment">3:45 PM | July 25, 2020</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">234567</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">Fever, cough, Stomach pain</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">Report Review</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+      </div>
+    </accordion-group>
+    <accordion-group class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left">
+            <p class="cardName">Michel Scofield Buddy</p>
+            <p class="cardAge">Male | 22 Years</p>
+            <p class="cardAppointment">3:45 PM | July 25, 2020</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">234567</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">Fever, cough, Stomach pain</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">Report Review</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+      </div>
+    </accordion-group>
+    <accordion-group class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left">
+            <p class="cardName">Michel Scofield Buddy</p>
+            <p class="cardAge">Male | 22 Years</p>
+            <p class="cardAppointment">3:45 PM | July 25, 2020</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">234567</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">Fever, cough, Stomach pain</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">Report Review</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+      </div>
+    </accordion-group>
+    <accordion-group class="pateintInfoCardAccordion">
+      <button class="btn accordBtn clearfix noBtnFocus" accordion-heading type="button">
+        <div class="accordianFlexHeader">
+          <div class="smallProfilePicPanel">
+            <img src="assets/images/smallProfilePic.svg" alt="Doctor Pic">
+          </div>
+          <div class="align-left">
+            <p class="cardName">Michel Scofield Buddy</p>
+            <p class="cardAge">Male | 22 Years</p>
+            <p class="cardAppointment">3:45 PM | July 25, 2020</p>
+          </div>
+          <div>
+            <ion-icon name="chevron-forward-outline" class="closedArrow"></ion-icon>
+            <ion-icon name="chevron-down-outline" class="openArrow"></ion-icon>
+          </div>
+        </div>
+      </button>
+      <div class="accordOpencontent">
+        <div class="mrnContent">
+          <div class="">
+            <p class="accordcontentTitle">MRN</p>
+            <p class="accordContentAns">234567</p>
+          </div>
+          <div class="">
+            <img src="assets/icon/smsIcon.svg" class="innerAccordIcons" />
+          </div>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Prev consultation</p>
+          <p class="accordContentAns">May 21, 2020 (11:25 AM)</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">Reason for Visit</p>
+          <p class="accordContentAns">Fever, cough, Stomach pain</p>
+        </div>
+        <div class="patientDetailscontent">
+          <p class="accordcontentTitle">consultation Type</p>
+          <p class="accordContentAns">Report Review</p>
+        </div>
+        <button type="button" class="btn consultNowBtn">Consult Now</button>
+      </div>
+    </accordion-group> -->
+  </accordion>
+
+</div>
+<!-- FIlter Modal Starts-->
+<ng-template #template>
+  <div class="modal-header blueBackModal">
+    <p>Filter <span>(2)</span></p>
+    <p class="clearFilterLabel" aria-label="Close" (click)="modalRef.hide()">Clear Filters</p>
+  </div>
+  <div class="modal-body">
+<p class="modalFilterLabel">Sort By</p>
+
+  <div class="radioBtnPanel">
+    <div class="radioBtnDiv">
+    <input type="radio" id="radioMale" name="radioGender" value="male" checked>
+    <label for="radioMale">Male</label>
+  </div>
+  <div class="radioBtnDiv">
+    <input type="radio" id="radioFemale" name="radioGender" value="female">
+    <label for="radioFemale">Female</label>
+  </div>
+ </div>
+<p class="modalFilterLabel">Time</p>
+
+  <div class="radioBtnPanel">
+    <div class="radioBtnDiv">
+    <input type="radio" id="radioToday" name="radioTime" value="today" checked>
+    <label for="radioToday">Today</label>
+  </div>
+  <div class="radioBtnDiv">
+    <input type="radio" id="radioWeek" name="radioTime" value="week">
+    <label for="radioWeek">Week</label>
+  </div>
+  <div class="radioBtnDiv">
+    <input type="radio" id="radioMonth" name="radioTime" value="month">
+    <label for="radioMonth">Month</label> 
+    </div>
+    <div class="radioBtnDiv">
+      <input type="radio" id="radioCustom" name="radioTime" value="month">
+      <label for="radioCustom">Custom</label> 
+      </div>
+</div>
+
+  </div>
+   <div class="modal-footer">
+   <button class="btn modalApplyBtn" type="button">Apply</button>
+  </div>
+  
+</ng-template>
+<!-- Filter Modal Ends-->

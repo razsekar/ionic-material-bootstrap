@@ -1,0 +1,14 @@
+.footerMenuPanel{
+    ion-tab-button{
+        border-top: 2px solid transparent;
+    }
+   .tab-selected{
+    color: #323A8B;
+    border-top: 2px solid #323A8B;
+    ion-label{
+        color: #323A8B;
+        font-family: Gotham-Medium; 
+       }
+   } 
+  
+}
